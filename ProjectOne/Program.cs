@@ -33,7 +33,7 @@ namespace ProjectOne
             if (readAnserUp == "QUIT")
             {
                 Console.WriteLine("\n\n\t\t\t    Nobody likes a quitter!!");
-                    return;
+                return;
             }
             else if (readAnserUp == "YES")
             {
@@ -49,21 +49,21 @@ namespace ProjectOne
             if (firstUpper == "PETE" || firstUpper == "PETER")
                 Console.WriteLine("\n\nSuch a wonderful first nemae you have!!");
 
-            Console.Write("\n\nPlease give Zelga your last name: \n\n\n");
+            Console.Write("\n\nPlease give Zelga your last name: ");
             string lastName = Console.ReadLine();
             string lastUpper = lastName.ToUpper();
 
             if (lastUpper == "FITTANTE")
                 Console.WriteLine("\n\nYour last name is magical!\n\n");
 
-            Console.Write("\nPlease give Zelga your age! I promise to keep it a secret! \n\n\n");
+            Console.Write("\n\nPlease give Zelga your age! I promise to keep it a secret! ");
             int custAge = int.Parse(Console.ReadLine());
 
-           
+
             if (custAge < 1)
             {
-                Console.WriteLine("You are lying to Zelga\n\n");
-                Console.Write("\n\nPlease give Zelga your correct age!\n\n");
+                Console.WriteLine("\n\nYou are lying to Zelga\n\n");
+                Console.Write("\n\nPlease give Zelga your correct age! ");
                 custAge = int.Parse(Console.ReadLine());
             }
 
@@ -71,8 +71,26 @@ namespace ProjectOne
             string birthMonth = Console.ReadLine();
             string birthMonthUpper = birthMonth.ToUpper();
             int birthMonth1;
+            Console.WriteLine(birthMonthUpper);
 
-            switch (birthMonth)
+            // This conditional statement is designed to ensure the correct user input. I know it is extremely long, and I hate using it. I would love some ideas
+            if (birthMonthUpper != "JANUNARY" || birthMonthUpper != "FEBRUARY" || birthMonthUpper != "MARCH" || birthMonthUpper != "APRIL"
+                || birthMonthUpper != "MAY" || birthMonthUpper != "JUNE" || birthMonthUpper != "JULY" || birthMonthUpper != "AUGUST"
+                || birthMonthUpper != "SEPTEMBER" || birthMonthUpper != "OCTOBER" || birthMonthUpper != "NOVEMBER" || birthMonthUpper != "DECEMBER")
+            {
+            }
+                else if (birthMonthUpper != "1" || birthMonthUpper != "2" || birthMonthUpper != "3" || birthMonthUpper != "4" || birthMonthUpper != "5"
+                || birthMonthUpper != "6" || birthMonthUpper != "7" || birthMonthUpper != "8" || birthMonthUpper != "9" || birthMonthUpper != "10"
+                || birthMonthUpper != "11" || birthMonthUpper != "12")
+                {
+                Console.Write("\n\nZelga says please enter a correct month of the year\n");
+                Console.Write("\n\nPlease tell Zelga the month you were born! ");
+                birthMonth = Console.ReadLine();
+                birthMonthUpper = birthMonth.ToUpper();
+                }
+            
+           
+            switch (birthMonthUpper)
             {
                 case "JANUNARY":
                     birthMonth1 = 1;
@@ -103,19 +121,22 @@ namespace ProjectOne
                     break;
                 case "OCTOBER":
                     birthMonth1 = 10;
-                    Console.WriteLine("A fine month is October!");
+                    Console.WriteLine("\n\nA fine month is October!");
                     break;
                 case "NOVEMBER":
                     birthMonth1 = 11;
                     break;
                 case "DECEMBER":
-                    birthMonth1 = 8;
+                    birthMonth1 = 12;
                     break;
                 default:
                     birthMonth1 = int.Parse(birthMonth);
                     break;
             }
-            Console.WriteLine(birthMonth);
+            Console.WriteLine(birthMonth1);
+            Console.Write("\n\nPlease enter your favorite \"ROYGBIV\" color for Zelga!\n");
+            Console.Write("\n\nIf you do not know what \"ROYGBIV\" is, ");
+            Console.Write("\n\n\nplease type \"Help\" and Zelga will help you! ");
         }
     }
 }
