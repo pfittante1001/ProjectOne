@@ -189,11 +189,121 @@ namespace ProjectOne
             else
             {
                 Console.WriteLine("\n\nA brave soul you are indeed!");
-                Console.Write("\n\nFollow the instructions on the next line to see into your future!");
-                
+                               
+            }
+
+            //This section calulates the users fortune
+
+            //This if statement calculates the retirement age
+
+            int yearRetire = 0;
+
+            if (custAge % 2 == 0 && custAge >= 1 && custAge <= 25)
+            {
+                yearRetire = 2045;
+            }
+            else if (custAge % 2 == 0 && custAge >= 26 && custAge <= 50)
+            {
+                yearRetire = 2035;
+            }
+            else if (custAge % 2 == 0 && custAge >= 51 && custAge <= 80)
+            {
+                yearRetire = 2025;
+            }
+            else if (custAge % 2 == 0 && custAge > 81)
+            {
+                yearRetire = 2017;
+            }
+            else if (custAge >= 1 && custAge <= 25)
+            {
+                yearRetire = 2055;
+            }
+            else if (custAge >= 26 && custAge <= 50)
+            {
+                yearRetire = 2045;
+            }
+            else if (custAge >= 51 && custAge <= 80)
+            {
+                yearRetire = 2035;
+            }
+            else if (custAge >= 81)
+            {
+                yearRetire = 2018;
+            }
+
+            //This switch statement will choose the vacation home for the user
+
+            string vacationHome;
+            switch (numSiblings)
+            {
+                case 0:
+                    vacationHome = "Amsterdam";
+                    break;
+                case 1:
+                    vacationHome = "London";
+                    break;
+                case 2:
+                    vacationHome = "Egypt";
+                    break;
+                case 3:
+                    vacationHome = "Prauge";
+                    break;
+                default:
+                    vacationHome = "Cleveland Texas";
+                    break;
+            }
+
+            //This switch statement will provide the future mode of transportation to the user
+
+            string autoChoice;
+            switch (roybivChoiceUpper)
+            {
+                case "RED":
+                    autoChoice = "BMW C250";
+                    break;
+                case "ORANGE":
+                    autoChoice = "1967 Ford Bronco";
+                    break;
+                case "YELLOW":
+                    autoChoice = "Ford Escape";
+                    break;
+                case "BLUE":
+                    autoChoice = "1967 Beetle";
+                    break;
+                case "INDIGO":
+                    autoChoice = "Harley RoadKing";
+                    break;
+                default:
+                    autoChoice = "VW Cabrolet";
+                    break;
+            }
+
+
+            //This if else statement will process the users future bank account
+            //The user input does no allow for entering anyhting less than 1 or greater than 12
+
+           double bankAcctFuture = 0.00;
+
+            if (birthMonth1 >= 1 && birthMonth1 <= 4)
+            {
+                bankAcctFuture = 25000.00;
+            }
+            else if (birthMonth1 >= 5 && birthMonth1 <= 8)
+            {
+                bankAcctFuture = 28000.00;
+            }
+            else if (birthMonth1 >= 9 && birthMonth1 <= 12)
+            {
+                bankAcctFuture = 21000.00;
             }
 
             
+
+            //This section presents the future to the user
+            Console.WriteLine("********************************************************************************\n");
+
+
+
 
 
         }
