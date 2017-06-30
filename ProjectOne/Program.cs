@@ -71,8 +71,7 @@ namespace ProjectOne
             string birthMonth = Console.ReadLine();
             string birthMonthUpper = birthMonth.ToUpper();
             int birthMonth1;
-            Console.WriteLine(birthMonthUpper);
-
+            
             // This conditional statement is designed to ensure the correct user input. I know it is extremely long, and I hate using it. I would love some ideas
             if (birthMonthUpper != "JANUNARY" || birthMonthUpper != "FEBRUARY" || birthMonthUpper != "MARCH" || birthMonthUpper != "APRIL"
                 || birthMonthUpper != "MAY" || birthMonthUpper != "JUNE" || birthMonthUpper != "JULY" || birthMonthUpper != "AUGUST"
@@ -133,10 +132,70 @@ namespace ProjectOne
                     birthMonth1 = int.Parse(birthMonth);
                     break;
             }
-            Console.WriteLine(birthMonth1);
+            
+            //This section will assist the user in entering the correct favorite color
+
             Console.Write("\n\nPlease enter your favorite \"ROYGBIV\" color for Zelga!\n");
-            Console.Write("\n\nIf you do not know what \"ROYGBIV\" is, ");
-            Console.Write("\n\n\nplease type \"Help\" and Zelga will help you! ");
+            Console.Write("\n\nIf you do not know what \"ROYGBIV\" is, please type \"Help\"");
+            Console.Write("\n\n\nZelga will gladly help you! ");
+            string roygbivChoice = Console.ReadLine();
+            string roybivChoiceUpper = roygbivChoice.ToUpper();
+
+            if (roybivChoiceUpper == "HELP")
+            {
+                Console.WriteLine("\n\nR = Red");
+                Console.WriteLine("O = Orange");
+                Console.WriteLine("Y = Yellow");
+                Console.WriteLine("G = Green");
+                Console.WriteLine("B = Blue");
+                Console.WriteLine("I = Indigo");
+                Console.WriteLine("V = Violet");
+                Console.WriteLine("\n\n\nNow that Madame Zelga helped you, please give"); 
+                Console.Write("\n\nMadame Zelga your favorite \"ROYGBIV\" color! ");
+                roygbivChoice = Console.ReadLine();
+                roybivChoiceUpper = roygbivChoice.ToUpper();
+            }
+            else
+            {
+                Console.Write("\n\n{0} is Zelga's favorite as well!\n", roybivChoiceUpper);
+            }
+
+            Console.WriteLine("\n\nOur journey is almost complete my dear!");
+            Console.WriteLine("\n\nMadame Zelga has only one remaining question");
+            Console.Write("\n\n\nMadame Zelga would like to know how my siblings you have! ");
+            int numSiblings = int.Parse(Console.ReadLine());
+
+            if (numSiblings < 0)
+            {
+                Console.WriteLine("Madame Zelga thinks your funny! You cannot enter a number less than zero!");
+                Console.Write("\n\n\nMadame Zelga would like to know how my siblings you have! ");
+                numSiblings = int.Parse(Console.ReadLine());
+            }
+
+            //This section will display the users fortune if they decide to continue
+
+            Console.WriteLine("\n\n\nMadame Zelga is now ready to tell your fortune!");
+            Console.WriteLine("\n\nIf you want to see into your future, please type \"Yes\"");
+            Console.Write("\n\nIf you have lost you courage please typ \"Quit\" ");
+            string userCont = Console.ReadLine();
+            string userContUpper = userCont.ToUpper();
+
+
+            if (userContUpper == "QUIT")
+            {
+                Console.WriteLine("\n\n\t\t\t    Nobody likes a quitter!!");
+                return;
+            }
+            else
+            {
+                Console.WriteLine("\n\nA brave soul you are indeed!");
+                Console.Write("\n\nFollow the instructions on the next line to see into your future!");
+                
+            }
+
+            
+
+
         }
     }
 }
