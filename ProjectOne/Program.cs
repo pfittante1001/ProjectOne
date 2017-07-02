@@ -62,13 +62,13 @@ namespace ProjectOne
                 }
                 else if (readAnserUp == "YES")
                 {
-                    Console.WriteLine("\n\n\t\tI see you are a brave soul, so lets get started.\n\n");
+                    Console.Write("\n\n\t\tI see you are a brave soul, so lets get started.\n");
 
-                    Console.WriteLine("\n\n\t\tYou can type \"Quit\" anytime if you get scared\n\n");
+                    Console.Write("\n\n\t\tYou can type \"Quit\" anytime if you get scared\n\n");
                 }
                 else
                 {
-                    Console.WriteLine("\n\n\tMadame Zelga is worried you might not be able to read directions");
+                    Console.Write("\n\n\tMadame Zelga is worried you might not be able to read directions");
 
                     Console.Write("\n\n\t\t\tPlease enter \"Yes\" or \"Quit\" :");
 
@@ -89,9 +89,9 @@ namespace ProjectOne
 
                 //This nesxt section will solicit the first and last name of the customer
 
-                Console.WriteLine("********************************************************************************\n");
+                Console.Write("********************************************************************************");
 
-                Console.Write("Please give Zelga your first name: ");
+                Console.Write("\nPlease give Zelga your first name: ");
 
                 string firstName = Console.ReadLine();
 
@@ -130,8 +130,11 @@ namespace ProjectOne
                 {
 
                     Console.Write("\n\nYour last name is magical!\n\n");
-                    Console.Write("Madame Zelga says press any key to continue!");
+
+                    Console.Write("Madame Zelga says press enter to continue!");
+
                     Console.ReadLine();
+
                     Console.Clear();
                 }
 
@@ -139,11 +142,11 @@ namespace ProjectOne
 
                 //This section will solicit the age of the customer
 
-                Console.Write("\n\n********************************************************************************\n");
+                Console.Write("\n********************************************************************************\n\n");
 
-                Console.Write("\n\tRemember if you loose your nerve, you can type \" Quit\" and run! ");
+                Console.Write("\tRemember if you loose your nerve, you can type \" Quit\" and run!\n\n\n");
 
-                Console.Write("\n\n********************************************************************************\n");
+                Console.Write("********************************************************************************");
 
                 Console.Write("\nPlease give Zelga your age! I promise to keep it a secret! ");
 
@@ -182,11 +185,13 @@ namespace ProjectOne
 
                 //This section will solicit the month the customer was born
 
-                Console.Write("\n\n********************************************************************************\n");
+                Console.Write("\n********************************************************************************\n\n");
 
-                Console.Write("\n\tRemember if you are getting scared, you can type \" Quit\" and run!\n ");
+                Console.Write("\tRemember if you are getting scared, you can type \" Quit\" and run!\n\n\n");
 
-                Console.Write("\n\nPlease tell Zelga the month you were born! ");
+                Console.Write("********************************************************************************");
+
+                Console.Write("\nPlease tell Zelga the month you were born! ");
 
                 string birthMonth = Console.ReadLine();
 
@@ -287,11 +292,14 @@ namespace ProjectOne
 
                 //This section will solicit a favorite color from the user
 
-                Console.Write("\n\n********************************************************************************\n");
+                Console.Write("\n********************************************************************************\n\n");
 
-                Console.Write("\n\tRemember if your spine is weakening, you can type \" Quit\" and breath!\n ");
+                Console.Write("\tRemember if your spine is weakening, you can type \" Quit\" and breath!\n\n\n");
 
-                Console.Write("\n\nPlease enter your favorite \"ROYGBIV\" color for Zelga!\n");
+                Console.Write("********************************************************************************\n");
+
+
+                Console.Write("Please enter your favorite \"ROYGBIV\" color for Zelga!\n");
 
                 Console.Write("\n\nIf you do not know what \"ROYGBIV\" is, please type \"Help\"");
 
@@ -312,6 +320,9 @@ namespace ProjectOne
 
                 if (roybivChoiceUpper == "HELP")
                 {
+
+                    Console.Write("\n\n********************************************************************************\n");
+
                     Console.WriteLine("\n\nR = Red");
 
                     Console.WriteLine("O = Orange");
@@ -337,26 +348,19 @@ namespace ProjectOne
                     Console.Clear();
                 }
 
-                if (roybivChoiceUpper != "R" || roybivChoiceUpper != "O" || roybivChoiceUpper != "Y" || roybivChoiceUpper != "B"
-                    || roybivChoiceUpper != "I" || roybivChoiceUpper != "V")
-                {
-                    //This else if intentionally left blank            
-                }
-
-                else if (roybivChoiceUpper != "RED" || roybivChoiceUpper != "ORANGE" || roybivChoiceUpper != "YELLOW" || roybivChoiceUpper != "BLUE" || roybivChoiceUpper != "INDIGO"
-                    || roybivChoiceUpper != "VIOLET")
+                if (roybivChoiceUpper == "RED" || roybivChoiceUpper == "ORANGE" || roybivChoiceUpper == "YELLOW" || roybivChoiceUpper == "BLUE" 
+                    || roybivChoiceUpper == "INDIGO" || roybivChoiceUpper == "VIOLET")
 
                 {
-                    Console.WriteLine(" Madame Zelga asks you to please enter a ROYGBIV color");
-                    roygbivChoice = Console.ReadLine();
+                    
                     roybivChoiceUpper = roygbivChoice.ToUpper();
                     Console.Clear();
                 }
 
-                if (roybivChoiceUpper == "R" || roybivChoiceUpper == "O" || roybivChoiceUpper == "Y" || roybivChoiceUpper == "B"
+                else if (roybivChoiceUpper == "R" || roybivChoiceUpper == "O" || roybivChoiceUpper == "Y" || roybivChoiceUpper == "B"
                     || roybivChoiceUpper == "I" || roybivChoiceUpper == "V")
 
-                {    
+                {
                     switch (roybivChoiceUpper)
                     {
                         case "R":
@@ -385,22 +389,43 @@ namespace ProjectOne
                             break;
                         default:
                             break;
-                        }
                     }
+                }
+                else
+                {
+                    Console.WriteLine("\n\nMadame Zelga asks you to please enter a ROYGBIV color\n");
 
-                Console.Write("\n\n{0} is Zelga's favorite as well!\n", roybivChoiceUpper);
+                    Console.Write("\nPlease enter the first character like \"R\" or \"Red\" for example\n ");
+
+                    roygbivChoice = Console.ReadLine();
+
+                    roybivChoiceUpper = roygbivChoice.ToUpper();
+
+                }
+
+                Console.Write("\n\n********************************************************************************\n");
+
+                Console.Write("{0} is Zelga's favorite as well!\n", roybivChoiceUpper);
+
+                Console.Write("\n\nMadame Zelga says press enter to continue!");
+
+                Console.ReadLine();
+
+                Console.Clear();
 
                 //This section will solicit the number of siblings from the user
 
                 Console.Write("\n\n********************************************************************************\n");
 
-                Console.Write("\n\tRemember if your courage is weakening, you can type \" Quit\" and crawl away!\n ");
+                Console.Write("\n Remember if your courage is weakening, you can type \" Quit\" and crawl away!\n");
 
-                Console.WriteLine("\n\nOur journey is almost complete my dear!");
+                Console.Write("\n\n********************************************************************************");
 
-                Console.WriteLine("\n\nMadame Zelga has only one remaining question");
+                Console.Write("\nOur journey is almost complete my dear!\n");
 
-                Console.Write("\n\n********************************************************************************\n");
+                Console.Write("\n\nMadame Zelga has only one remaining question\n");
+
+                Console.Write("\n\nMadame Zelga says press enter to continue!");
 
                 Console.ReadLine();
 
@@ -408,28 +433,30 @@ namespace ProjectOne
 
                 Console.Write("\n\n********************************************************************************\n");
 
-                Console.Write("\n\n\nMadame Zelga would like to know how my siblings you have! ");
+                Console.Write("\nMadame Zelga would like to know how my siblings you have! ");
 
                 numSiblings = int.Parse(Console.ReadLine());
 
                 if (numSiblings < 0)
                 {
-                    Console.WriteLine("Madame Zelga thinks your funny! You cannot enter a number less than zero!");
+                    Console.Write("Madame Zelga thinks your funny! You cannot enter a number less than zero!");
 
-                    Console.Write("\n\n\nMadame Zelga would like to know how my siblings you have! ");
+                    Console.Write("\n\nMadame Zelga would like to know how my siblings you have! ");
 
                     numSiblings = int.Parse(Console.ReadLine());
 
                     Console.Clear();
                 }
 
+                Console.Clear();
+
                 //This section will display the users fortune if they decide to continue
 
-                Console.Write("\n\n********************************************************************************\n");
+                Console.Write("\n\n********************************************************************************");
 
-                Console.WriteLine("\n\n\nMadame Zelga is now ready to tell your fortune!");
+                Console.Write("\nMadame Zelga is now ready to tell your fortune!");
 
-                Console.WriteLine("\n\nIf you want to see into your future, please type \"Yes\"");
+                Console.Write("\n\nIf you want to see into your future, please type \"Yes\"");
 
                 Console.Write("\n\nIf you have lost you courage please typ \"Quit\" ");
 
@@ -447,6 +474,7 @@ namespace ProjectOne
                 else
                 {
                     Console.WriteLine("\n\nA brave soul you are indeed!");
+                    Console.Write("\n\nMadame Zelga says press enter to continue!");
                     Console.ReadLine();
                     Console.Clear();
 
