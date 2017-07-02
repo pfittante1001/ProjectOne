@@ -127,11 +127,21 @@ namespace ProjectOne
                     return;
                 }
                 else if (lastUpper == "FITTANTE")
+                {
 
                     Console.Write("\n\nYour last name is magical!\n\n");
+                    Console.Write("Madame Zelga says press any key to continue!");
+                    Console.ReadLine();
+                    Console.Clear();
+                }
 
+                Console.Clear();
 
                 //This section will solicit the age of the customer
+
+                Console.Write("\n\n********************************************************************************\n");
+
+                Console.Write("\n\tRemember if you loose your nerve, you can type \" Quit\" and run! ");
 
                 Console.Write("\n\n********************************************************************************\n");
 
@@ -160,15 +170,21 @@ namespace ProjectOne
                     Console.Write("\n\nPlease give Zelga your correct age! ");
 
                     custAgeStr = Console.ReadLine();
+                    Console.Clear();
 
                 }
                 else
                 {
                     custAge = int.Parse(custAgeStr);
+                    Console.Clear();
                 }
 
 
                 //This section will solicit the month the customer was born
+
+                Console.Write("\n\n********************************************************************************\n");
+
+                Console.Write("\n\tRemember if you are getting scared, you can type \" Quit\" and run!\n ");
 
                 Console.Write("\n\nPlease tell Zelga the month you were born! ");
 
@@ -204,6 +220,8 @@ namespace ProjectOne
                     birthMonth = Console.ReadLine();
 
                     birthMonthUpper = birthMonth.ToUpper();
+
+                    Console.Clear();
                 }
 
                 //This switch statement will take the birthmonth as entered from the user 
@@ -213,47 +231,65 @@ namespace ProjectOne
                 {
                     case "JANUNARY":
                         birthMonth1 = 1;
+                        Console.Clear();
                         break;
                     case "FEBRUARY":
                         birthMonth1 = 2;
+                        Console.Clear();
                         break;
                     case "MARCH":
                         birthMonth1 = 3;
+                        Console.Clear();
                         break;
                     case "APRIL":
                         birthMonth1 = 4;
+                        Console.Clear();
                         break;
                     case "MAY":
                         birthMonth1 = 5;
+                        Console.Clear();
                         break;
                     case "JUNE":
                         birthMonth1 = 6;
+                        Console.Clear();
                         break;
                     case "JULY":
                         birthMonth1 = 7;
+                        Console.Clear();
                         break;
                     case "AUGUST":
                         birthMonth1 = 8;
+                        Console.Clear();
                         break;
                     case "SEPTEMBER":
                         birthMonth1 = 9;
+                        Console.Clear();
                         break;
                     case "OCTOBER":
                         birthMonth1 = 10;
-                        Console.WriteLine("\n\nA fine month is October!");
+                        Console.WriteLine("\n\nA Madame Zelga says October is glorius month!");
+                        Console.ReadLine();
+                        Console.Clear();
                         break;
                     case "NOVEMBER":
                         birthMonth1 = 11;
+                        Console.Clear();
                         break;
                     case "DECEMBER":
                         birthMonth1 = 12;
+                        Console.Clear();
                         break;
                     default:
                         birthMonth1 = int.Parse(birthMonth);
+                        Console.Clear();
                         break;
                 }
 
                 //This section will solicit a favorite color from the user
+
+                Console.Write("\n\n********************************************************************************\n");
+
+                Console.Write("\n\tRemember if your spine is weakening, you can type \" Quit\" and breath!\n ");
 
                 Console.Write("\n\nPlease enter your favorite \"ROYGBIV\" color for Zelga!\n");
 
@@ -297,17 +333,80 @@ namespace ProjectOne
                     roygbivChoice = Console.ReadLine();
 
                     roybivChoiceUpper = roygbivChoice.ToUpper();
-                }
-                else
-                {
-                    Console.Write("\n\n{0} is Zelga's favorite as well!\n", roybivChoiceUpper);
+
+                    Console.Clear();
                 }
 
+                if (roybivChoiceUpper != "R" || roybivChoiceUpper != "O" || roybivChoiceUpper != "Y" || roybivChoiceUpper != "B"
+                    || roybivChoiceUpper != "I" || roybivChoiceUpper != "V")
+                {
+                    //This else if intentionally left blank            
+                }
+
+                else if (roybivChoiceUpper != "RED" || roybivChoiceUpper != "ORANGE" || roybivChoiceUpper != "YELLOW" || roybivChoiceUpper != "BLUE" || roybivChoiceUpper != "INDIGO"
+                    || roybivChoiceUpper != "VIOLET")
+
+                {
+                    Console.WriteLine(" Madame Zelga asks you to please enter a ROYGBIV color");
+                    roygbivChoice = Console.ReadLine();
+                    roybivChoiceUpper = roygbivChoice.ToUpper();
+                    Console.Clear();
+                }
+
+                if (roybivChoiceUpper == "R" || roybivChoiceUpper == "O" || roybivChoiceUpper == "Y" || roybivChoiceUpper == "B"
+                    || roybivChoiceUpper == "I" || roybivChoiceUpper == "V")
+
+                {    
+                    switch (roybivChoiceUpper)
+                    {
+                        case "R":
+                            roybivChoiceUpper = "RED";
+                            Console.Clear();
+                            break;
+                        case "O":
+                            roybivChoiceUpper = "ORANGE";
+                            Console.Clear();
+                            break;
+                        case "Y":
+                            roybivChoiceUpper = "YELLOW";
+                            Console.Clear();
+                            break;
+                        case "B":
+                            roybivChoiceUpper = "BLUE";
+                            Console.Clear();
+                            break;
+                        case "I":
+                            roybivChoiceUpper = "INDIGO";
+                            Console.Clear();
+                            break;
+                        case "V":
+                            roybivChoiceUpper = "VIOLET";
+                            Console.Clear();
+                            break;
+                        default:
+                            break;
+                        }
+                    }
+
+                Console.Write("\n\n{0} is Zelga's favorite as well!\n", roybivChoiceUpper);
+
                 //This section will solicit the number of siblings from the user
+
+                Console.Write("\n\n********************************************************************************\n");
+
+                Console.Write("\n\tRemember if your courage is weakening, you can type \" Quit\" and crawl away!\n ");
 
                 Console.WriteLine("\n\nOur journey is almost complete my dear!");
 
                 Console.WriteLine("\n\nMadame Zelga has only one remaining question");
+
+                Console.Write("\n\n********************************************************************************\n");
+
+                Console.ReadLine();
+
+                Console.Clear();
+
+                Console.Write("\n\n********************************************************************************\n");
 
                 Console.Write("\n\n\nMadame Zelga would like to know how my siblings you have! ");
 
@@ -320,9 +419,13 @@ namespace ProjectOne
                     Console.Write("\n\n\nMadame Zelga would like to know how my siblings you have! ");
 
                     numSiblings = int.Parse(Console.ReadLine());
+
+                    Console.Clear();
                 }
 
                 //This section will display the users fortune if they decide to continue
+
+                Console.Write("\n\n********************************************************************************\n");
 
                 Console.WriteLine("\n\n\nMadame Zelga is now ready to tell your fortune!");
 
@@ -344,6 +447,8 @@ namespace ProjectOne
                 else
                 {
                     Console.WriteLine("\n\nA brave soul you are indeed!");
+                    Console.ReadLine();
+                    Console.Clear();
 
                 }
 
