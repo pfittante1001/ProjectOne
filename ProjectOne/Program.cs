@@ -10,7 +10,19 @@ using System.Threading.Tasks;
  * A console application that will tell the user’s fortune based on data received from the user.
  * 
  * This program receives input from a user, and developes an output based on the users input,
- * and presents a prdiction of the users future.
+ * then presents a prediction of the users future.
+ * 
+ * I used the following to complete this project:
+ * If statements
+ * Nested If Statements
+ * If Else Statements
+ * Switch Statements
+ * String Arrays and .Contains method to decrease the number of parameters in the If statements
+ * While Loop
+ * Global Variables
+ * int.TryParse() to correct the fatal exception when the wrong input was given by the user
+ * 
+ * 
  * 
  * 
  * */
@@ -22,8 +34,8 @@ namespace ProjectOne
         {
             //Global Variables
             string readAnserUp;
-            string firstUpper;
-            string lastUpper;
+            string firstNameUpper;
+            string lastNameUpper;
             string custAgeStrUpper;
             string birthMonthUpper;
             string roybivChoiceUpper;
@@ -33,14 +45,16 @@ namespace ProjectOne
             int custAge;
             int birthMonth1 = 0;
             int numSiblings;
-            int yearRetire;
+            int yearRetire = 0;
             decimal bankAcctFuture;
             string exitProgram = "";
-            string[] birthMonthArray = new string[] {"QUIT","JANUNARY", "FEBRUARY", "MARCH", "APRIL", "MAY", "JUNE", "JULY", "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER"};
+            string[] birthMonthArray = new string[] {"QUIT","JANUNARY", "FEBRUARY", "MARCH", "APRIL", "MAY", "JUNE", "JULY", "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER","1",
+            "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"};
             string[] roygbivArray = new string[] {"HELP", "RED", "ORANGE", "YELLOW", "GREEN", "BLUE", "INDIGO", "VIOLET", "R", "O", "Y", "G", "B", "I", "V" };
 
             //This first section will solicit buisness from the user
 
+//Begginning of Part One project requirements
 
             while (exitProgram != "QUIT")
             {
@@ -74,6 +88,7 @@ namespace ProjectOne
 
                     Console.Write("\n\n\t\tYou can type \"Quit\" anytime if you get scared\n\n");
                 }
+
                 else
                 { 
                     Console.Write("\n\n\tMadame Zelda is worried you might not be able to read directions");
@@ -104,11 +119,11 @@ namespace ProjectOne
 
                 Console.Write("\nPlease give Madame Zelda your first name: ");
 
-                string firstName = Console.ReadLine();
+                string firstNameLower = Console.ReadLine();
 
-                firstUpper = firstName.ToUpper();
+                firstNameUpper = firstNameLower.ToUpper();
 
-                if (firstUpper == "QUIT")
+                if (firstNameUpper == "QUIT")
                 {
                     Console.Clear();
 
@@ -119,17 +134,17 @@ namespace ProjectOne
                     return;
                 }
 
-                if (firstUpper == "PETE" || firstUpper == "PETER")
+                if (firstNameUpper == "PETE" || firstNameUpper == "PETER")
 
                     Console.WriteLine("\n\nSuch a wonderful first nemae you have!!");
 
                     Console.Write("\n\nPlease give Zelga your last name: ");
 
-                    string lastName = Console.ReadLine();
+                    string lastNameLower = Console.ReadLine();
 
-                    lastUpper = lastName.ToUpper();
+                    lastNameUpper = lastNameLower.ToUpper();
 
-                if (lastUpper == "FITTANTE")
+                if (lastNameUpper == "FITTANTE")
                 {
 
                     Console.Write("\n\nYour last name is magical!\n\n");
@@ -140,7 +155,7 @@ namespace ProjectOne
 
                     Console.Clear();
                 }
-                else if (lastUpper == "QUIT")
+                else if (lastNameUpper == "QUIT")
                 {
                     Console.Clear();
 
@@ -209,18 +224,18 @@ namespace ProjectOne
 
                     Console.Clear();
 
-                }
+                    if (custAgeStrUpper == "QUIT")
+                    {
+                        Console.Clear();
 
-                if (custAgeStrUpper == "QUIT")
-                {
-                    Console.Clear();
+                        Console.WriteLine("\n\n\t\t\t    Nobody likes a quitter!!\n\n\n");
 
-                    Console.WriteLine("\n\n\t\t\t    Nobody likes a quitter!!\n\n\n");
+                        Console.WriteLine("\n\n\t\t\t\t  Au Revoir!!\n\n\n");
 
-                    Console.WriteLine("\n\n\t\t\t\t  Au Revoir!!\n\n\n");
+                        return;
+                    }
 
-                    return;
-                }
+                } 
                 else
                 {
                     custAge = int.Parse(custAgeStr);
@@ -242,8 +257,18 @@ namespace ProjectOne
                 string birthMonth = Console.ReadLine();
 
                 birthMonthUpper = birthMonth.ToUpper();
+                if (birthMonthUpper == "QUIT")
+                {
+                    Console.Clear();
 
-                if(birthMonthArray.Contains(birthMonthUpper) == false && int.TryParse(birthMonth, out birthMonth1) == false)
+                    Console.WriteLine("\n\n\t\t\t    Nobody likes a quitter!!\n\n\n");
+
+                    Console.WriteLine("\n\n\t\t\t             Au Revoir!!\n\n\n");
+
+                    return;
+                }
+
+                if (birthMonthArray.Contains(birthMonthUpper) == false)
                 {
                     Console.Write("\nMadame Zelda needs a valid number or month to continue or \"Quit\" to escape!\n");
 
@@ -254,6 +279,7 @@ namespace ProjectOne
                     birthMonthUpper = birthMonth.ToUpper();
 
                     Console.Clear();
+
                     if (birthMonthUpper == "QUIT")
                     {
                         Console.Clear();
@@ -264,29 +290,13 @@ namespace ProjectOne
 
                         return;
                     }
-                    else if (int.TryParse(birthMonth, out birthMonth1) == true)
-                    {
-                        birthMonth1 = int.Parse(birthMonth);
-                        Console.Clear();
-                    }
+                  }
 
-                }
-                else if (birthMonthUpper == "QUIT")
+                if (birthMonthArray.Contains(birthMonthUpper) == true && int.TryParse(birthMonthUpper, out birthMonth1) == true)
                 {
-                    Console.Clear();
+                    birthMonth1 = int.Parse(birthMonthUpper);
 
-                    Console.WriteLine("\n\n\t\t\t    Nobody likes a quitter!!\n\n\n");
-
-                    Console.WriteLine("\n\n\t\t\t             Au Revoir!!\n\n\n");
-
-                    return;
                 }
-                else if (int.TryParse(birthMonth, out birthMonth1) == true)
-                {
-                    birthMonth1 = int.Parse(birthMonth);
-                    Console.Clear();
-                }
-                
 
                 if (birthMonth1 == 10)
                 {
@@ -347,7 +357,7 @@ namespace ProjectOne
                             birthMonth1 = 10;
                             Console.Clear();
                             Console.Write("\n********************************************************************************\n\n");
-                            Console.Write("Madame Zelga says October is glorius month!Switch\n\n\n");
+                            Console.Write("Madame Zelga says October is glorius month!switch\n\n\n");
                             Console.Write("Please press \"Enter\" to continue");
                             Console.Write("\n********************************************************************************");                           
                             Console.ReadLine();
@@ -525,7 +535,9 @@ namespace ProjectOne
 
                 Console.Clear();
 
-                //This section will solicit the number of siblings from the user
+                //This section will solicit the number of siblings from the user. The following code also handles the exception
+                //thrown by the IDE when an the user enters an invalid string.  Example of an invalid string would be "test"
+                //This section of code allows the user to input the numerical value of the number of siblings.
 
                 Console.Write("\n\n********************************************************************************\n");
 
@@ -547,17 +559,76 @@ namespace ProjectOne
 
                 Console.Write("\nMadame Zelga would like to know how my siblings you have! ");
 
-                numSiblings = int.Parse(Console.ReadLine());
+                string numSiblingsStr = (Console.ReadLine());
+                string numsiblingsStrUpper = numSiblingsStr.ToUpper();
 
-                if (numSiblings < 0)
+                if (numsiblingsStrUpper == "QUIT")
                 {
-                    Console.Write("Madame Zelga thinks your funny! You cannot enter a number less than zero!");
+                    Console.Clear();
+
+                    Console.WriteLine("\n\n\t\t\t    Nobody likes a quitter!!\n\n\n");
+
+                    Console.WriteLine("\n\n\t\t\t             Au Revoir!!\n\n\n");
+
+                    return;
+                }
+
+                if (int.TryParse(numSiblingsStr, out numSiblings) == false)
+                {
+                    Console.Clear();
+
+                    Console.Write("\n\n********************************************************************************\n");
+
+                    Console.Write("Madame Zelda says I need a valid number for example \"1\"");
 
                     Console.Write("\n\nMadame Zelga would like to know how my siblings you have! ");
 
-                    numSiblings = int.Parse(Console.ReadLine());
+                    numSiblingsStr = (Console.ReadLine());
+
+                    numsiblingsStrUpper = numSiblingsStr.ToUpper();
+
+                    if (numsiblingsStrUpper == "QUIT")
+                    {
+                        Console.Clear();
+
+                        Console.WriteLine("\n\n\t\t\t    Nobody likes a quitter!!\n\n\n");
+
+                        Console.WriteLine("\n\n\t\t\t             Au Revoir!!\n\n\n");
+
+                        return;
+                    }
+                }
+                else
+                {
+                    numSiblings = int.Parse(numSiblingsStr);
+                }
+
+                if (numSiblings < 0)
+                {
+                    Console.Write("\n\nMadame Zelga thinks your funny! You cannot enter a number less than zero!\n");
+
+                    Console.Write("\n\nMadame Zelga would like to know how my siblings you have! ");
+
+                    numSiblingsStr = (Console.ReadLine());
+
+                    numsiblingsStrUpper = numSiblingsStr.ToUpper();
 
                     Console.Clear();
+
+                    if (numsiblingsStrUpper == "QUIT")
+                    {
+                        Console.Clear();
+
+                        Console.WriteLine("\n\n\t\t\t    Nobody likes a quitter!!\n\n\n");
+
+                        Console.WriteLine("\n\n\t\t\t             Au Revoir!!\n\n\n");
+
+                        return;
+                    }
+                }
+                else
+                {
+                    numSiblings = int.Parse(numsiblingsStrUpper);
                 }
 
                 Console.Clear();
@@ -591,42 +662,44 @@ namespace ProjectOne
                     Console.Clear();
 
                 }
+// End of Part One project requirements
 
-                //This if statement calculates the retirement age
+// Begginning of Part Two project requirements
 
-                yearRetire = 0;
+
+                //This if statement calculates the retirement age if the the mod of custAge is 0, the custAge is even
 
                 if (custAge % 2 == 0 && custAge >= 1 && custAge <= 25)
                 {
-                    yearRetire = 35;
+                    yearRetire = 22;
                 }
                 else if (custAge % 2 == 0 && custAge >= 26 && custAge <= 50)
                 {
-                    yearRetire = 25;
+                    yearRetire = 18;
                 }
                 else if (custAge % 2 == 0 && custAge >= 51 && custAge <= 80)
                 {
-                    yearRetire = 15;
+                    yearRetire = 10;
                 }
                 else if (custAge % 2 == 0 && custAge > 81)
                 {
-                    yearRetire = 3;
-                }
-                else if (custAge >= 1 && custAge <= 25)
-                {
-                    yearRetire = 25;
-                }
-                else if (custAge >= 26 && custAge <= 50)
-                {
-                    yearRetire = 20;
-                }
-                else if (custAge >= 51 && custAge <= 80)
-                {
-                    yearRetire = 15;
-                }
-                else if (custAge >= 81)
-                {
                     yearRetire = 2;
+                }
+                else if (custAge % 2 != 0 && custAge >= 1 && custAge <= 25)
+                { 
+                    yearRetire = 23;
+                }
+                else if (custAge % 2 != 0 && custAge >= 26 && custAge <= 50)
+                {
+                    yearRetire = 21;
+                }
+                else if (custAge % 2 != 0 && custAge >= 51 && custAge <= 80)
+                {
+                    yearRetire = 11;
+                }
+                else if (custAge % 2 != 0 && custAge >= 81)
+                {
+                    yearRetire = 3;
                 }
 
                 //This switch statement will choose the vacation home location
@@ -635,23 +708,18 @@ namespace ProjectOne
                 {
                     case 0:
                         vacationHome = "Amsterdam";
-
                         break;
                     case 1:
                         vacationHome = "London";
-
                         break;
                     case 2:
                         vacationHome = "Egypt";
-
                         break;
                     case 3:
                         vacationHome = "Prauge";
-
                         break;
                     default:
                         vacationHome = "Cleveland Texas";
-
                         break;
                 }
 
@@ -660,7 +728,7 @@ namespace ProjectOne
                 switch (roybivChoiceUpper)
                 {
                     case "RED":
-                        autoChoice = "BMW C250";
+                        autoChoice = "MB C250";
 
                         break;
                     case "ORANGE":
@@ -681,7 +749,6 @@ namespace ProjectOne
                         break;
                     default:
                         autoChoice = "VW Cabrolet";
-
                         break;
                 }
 
@@ -703,13 +770,15 @@ namespace ProjectOne
                     bankAcctFuture = 21000.00m;
                 }
 
+// End of Part Two project requirements
 
+//Begginning of Part Three project requirements
 
                 //This section presents the future to the user
                 Console.Write("*******************************************************************************\n\n");
                 Console.Write("  Madame Zelga has looked into your future and she has seen your fortune\n\n");
-                Console.Write("*  {0} {1} will retire in {2} years with ${3} in the bank,a vacation home\n\n", firstUpper, lastUpper, yearRetire, bankAcctFuture);
-                Console.Write("*                          in uit{0} with a {1}.\n\n", vacationHome, autoChoice);
+                Console.Write("*  {0} {1} will retire in {2} years with ${3} in the bank, a vacation home\n\n", firstNameUpper, lastNameUpper, yearRetire, bankAcctFuture);
+                Console.Write("*                          in {0} and a {1}.\n\n", vacationHome, autoChoice);
                 Console.Write("*******************************************************************************\n\n");
 
                 Console.WriteLine("Thank you for visiting Madame Zelga. Please enter \"Quit\" to exit the game.");
