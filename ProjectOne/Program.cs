@@ -177,7 +177,7 @@ namespace ProjectOne
 
                 Console.Write("********************************************************************************");
 
-                Console.Write("\nPlease give Zelda your age! I promise to keep it a secret! ");
+                Console.Write("\nPlease give Madame Zelda your age! I promise to keep it a secret! ");
 
                 string custAgeStr = Console.ReadLine();
 
@@ -189,7 +189,7 @@ namespace ProjectOne
                 {
                     Console.Write("\nMadame Zelda needs a valid number to continue or \"Quit\" to escape!\n");
 
-                    Console.Write("\nPlease give Zelda your correct age! ");
+                    Console.Write("\nPlease give Madame Zelda your correct age! ");
 
                     custAgeStr = Console.ReadLine();
 
@@ -216,7 +216,7 @@ namespace ProjectOne
                 //This condition was chosen randomly to make the age range more realistic and the game more interactive
                 if (custAge < 1 || custAge > 120)
                 {
-                    Console.Write("\n\nYou are lying to Zelda\n");
+                    Console.Write("\n\nYou are lying to Madame Zelda\n");
 
                     Console.Write("\n\nPlease give Zelda your correct age! ");
 
@@ -394,11 +394,11 @@ namespace ProjectOne
 
                 Console.Write("********************************************************************************\n");
 
-                Console.Write("Please enter your favorite \"ROYGBIV\" color for Zelda!\n");
+                Console.Write("Please enter your favorite \"ROYGBIV\" color for Madame Zelda!\n");
 
                 Console.Write("\n\nIf you do not know what \"ROYGBIV\" is, please type \"Help\"");
 
-                Console.Write("\n\n\nZelda will gladly help you! ");
+                Console.Write("\n\n\nMadame Zelda will gladly help you! ");
 
                 string roygbivChoice = Console.ReadLine();
 
@@ -487,14 +487,6 @@ namespace ProjectOne
 
                 }
 
-                //if (roygbivArray.Contains(roybivChoiceUpper) == true)
-
-                //{
-                    
-                //    roybivChoiceUpper = roygbivChoice.ToUpper();
-                //    Console.Clear();
-                //}
-
                 if (roygbivArray.Contains(roybivChoiceUpper) == true)
                 
                 {
@@ -568,7 +560,7 @@ namespace ProjectOne
 
                 Console.Write("\n\n********************************************************************************\n");
 
-                Console.Write("\nMadame Zelda would like to know how my siblings you have! ");
+                Console.Write("\nMadame Zelda would like to know how many siblings you have! ");
 
                 string numSiblingsStr = (Console.ReadLine());
                 string numsiblingsStrUpper = numSiblingsStr.ToUpper();
@@ -593,7 +585,7 @@ namespace ProjectOne
 
                     Console.Write("Madame Zelda says I need a valid number for example \"1\"");
 
-                    Console.Write("\n\nMadame Zelda would like to know how my siblings you have! ");
+                    Console.Write("\n\nMadame Zelda would like to know how many siblings you have! ");
 
                     numSiblingsStr = (Console.ReadLine());
 
@@ -641,7 +633,7 @@ namespace ProjectOne
 
                 Console.Write("\n\nIf you want to see into your future, please type \"Yes\"");
 
-                Console.Write("\n\nIf you have lost you courage please typ \"Quit\" ");
+                Console.Write("\n\nIf you have lost you courage please type \"Quit\" ");
 
                 string userCont = Console.ReadLine();
 
@@ -783,8 +775,8 @@ namespace ProjectOne
                 //This section presents the future to the user
                 Console.Write("*******************************************************************************\n\n");
                 Console.Write("  Madame Zelda has looked into your future and she has seen your fortune\n\n");
-                Console.Write("*  {0} {1} will retire in {2} years with ${3} in the bank, a vacation home\n\n", firstNameUpper, lastNameUpper, yearRetire, bankAcctFuture);
-                Console.Write("*                          in {0} and a {1}.\n\n", vacationHome, autoChoice);
+                Console.Write("*  {0} {1} will retire in {2} years with ${3} in the bank,\n\n", firstNameUpper, lastNameUpper, yearRetire, bankAcctFuture);
+                Console.Write("*          a vacation home in {0} and a {1}.\n\n", vacationHome, autoChoice);
                 Console.Write("*******************************************************************************\n\n");
 
                 Console.WriteLine("Thank you for visiting Madame Zelda. Please enter \"Quit\" to exit the game.");
