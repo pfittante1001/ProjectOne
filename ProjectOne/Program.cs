@@ -21,11 +21,8 @@ using System.Threading.Tasks;
  * While Loop
  * Global Variables
  * int.TryParse() to correct the fatal exception when the wrong input was given by the user
- * 
- * 
- * 
- * 
- * */
+ *  
+ */
 namespace ProjectOne
 {
     class Program
@@ -46,7 +43,7 @@ namespace ProjectOne
             int birthMonth1 = 0;
             int numSiblings;
             int yearRetire = 0;
-            decimal bankAcctFuture;
+            decimal bankAcctFuture = 0.00m;
             string exitProgram = "";
             string[] birthMonthArray = new string[] {"QUIT","JANUNARY", "FEBRUARY", "MARCH", "APRIL", "MAY", "JUNE", "JULY", "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER","1",
             "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"};
@@ -619,20 +616,8 @@ namespace ProjectOne
                 }
 
                 //This condition checks to make sure the use input is valid and greater than 0
-                if (numSiblings < 0)
+                if (numsiblingsStrUpper == "QUIT")
                 {
-                    Console.Write("\n\nMadame Zelda thinks your funny! You cannot enter a number less than zero!\n");
-
-                    Console.Write("\n\nMadame Zelda would like to know how my siblings you have! ");
-
-                    numSiblingsStr = (Console.ReadLine());
-
-                    numsiblingsStrUpper = numSiblingsStr.ToUpper();
-
-                    Console.Clear();
-
-                    if (numsiblingsStrUpper == "QUIT")
-                    {
                         Console.Clear();
 
                         Console.WriteLine("\n\n\t\t\t    Nobody likes a quitter!!\n\n\n");
@@ -640,7 +625,6 @@ namespace ProjectOne
                         Console.WriteLine("\n\n\t\t\t             Au Revoir!!\n\n\n");
 
                         return;
-                    }
                 }
                 else
                 {
@@ -721,25 +705,30 @@ namespace ProjectOne
                     yearRetire = 3;
                 }
 
-                //This switch statement will choose the vacation home location
-
-                switch (numSiblings)
+                //This nested If Else statement will choose the vacation home 
+                if (numSiblings == 0)
                 {
-                    case 0:
-                        vacationHome = "Amsterdam";
-                        break;
-                    case 1:
-                        vacationHome = "London";
-                        break;
-                    case 2:
-                        vacationHome = "Egypt";
-                        break;
-                    case 3:
-                        vacationHome = "Prauge";
-                        break;
-                    default:
-                        vacationHome = "Cleveland Texas";
-                        break;
+                    vacationHome = "Paris";
+                }
+                else if (numSiblings == 1)
+                {
+                    vacationHome = "Berlin";
+                }
+                else if (numSiblings == 2)
+                {
+                    vacationHome = "San Francisco";
+                }
+                else if (numSiblings == 3)
+                {
+                    vacationHome = "Tokyo Japan";
+                }
+                else if (numSiblings > 3)
+                {
+                    vacationHome = "Rome Italy";
+                }
+                else
+                {
+                    vacationHome = "Cleveland Taxas";
                 }
 
                 //This switch statement will choose the future mode of transportation 
@@ -773,8 +762,6 @@ namespace ProjectOne
 
 
                 //This if else statement will process the users future bank account
-
-                bankAcctFuture = 0.00m;
 
                 if (birthMonth1 >= 1 && birthMonth1 <= 4)
                 {
