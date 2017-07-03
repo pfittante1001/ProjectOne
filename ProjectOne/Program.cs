@@ -18,33 +18,35 @@ namespace ProjectOne
 {
     class Program
     {
-        static void Main(string[] args)        
+        static void Main(string[] args)
         {
             //Global Variables
             string readAnserUp;
             string firstUpper;
             string lastUpper;
+            string custAgeStrUpper;
             string birthMonthUpper;
             string roybivChoiceUpper;
             string userContUpper;
             string vacationHome;
             string autoChoice;
-            int custAge;            
-            int birthMonth1;            
-            int numSiblings;            
-            int yearRetire;            
-            double bankAcctFuture;
+            int custAge;
+            int birthMonth1 = 0;
+            int numSiblings;
+            int yearRetire;
+            decimal bankAcctFuture;
             string exitProgram = "";
-
+            string[] birthMonthArray = new string[] {"QUIT","JANUNARY", "FEBRUARY", "MARCH", "APRIL", "MAY", "JUNE", "JULY", "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER"};
+            string[] roygbivArray = new string[] {"HELP", "RED", "ORANGE", "YELLOW", "GREEN", "BLUE", "INDIGO", "VIOLET", "R", "O", "Y", "G", "B", "I", "V" };
 
             //This first section will solicit buisness from the user
 
+
             while (exitProgram != "QUIT")
             {
+                Console.Write("\t\t\tWelcome I am Madamme Zelda  \n\n\n");
 
-                Console.Write("\t\t\tWelcome I am Madamme Zelgas  \n\n\n");
-
-                Console.Write("\t\tWould you like Madame Zelga to read your future?\n\n\n");
+                Console.Write("\t\tWould you like Madame Zelda to read your future?\n\n\n");
 
                 Console.Write("\t\t\tPlease enter \"Yes\" or \"Quit\" :");
 
@@ -54,21 +56,27 @@ namespace ProjectOne
 
                 if (readAnserUp == "QUIT")
                 {
+                    Console.Clear();
+
                     Console.WriteLine("\n\n\t\t\t    Nobody likes a quitter!!\n\n\n");
 
-                    Console.WriteLine("\n\n\t\t\t             Au Revoir!!\n\n\n");
+                    Console.WriteLine("\n\n\t\t\t\t  Au Revoir!!\n\n\n");
 
                     return;
                 }
                 else if (readAnserUp == "YES")
                 {
-                    Console.Write("\n\n\t\tI see you are a brave soul, so lets get started.\n");
+                    Console.Clear();
+
+                    Console.Write("\n********************************************************************************");
+
+                    Console.Write("\n\t\tI see you are a brave soul, so lets get started.\n");
 
                     Console.Write("\n\n\t\tYou can type \"Quit\" anytime if you get scared\n\n");
                 }
                 else
-                {
-                    Console.Write("\n\n\tMadame Zelga is worried you might not be able to read directions");
+                { 
+                    Console.Write("\n\n\tMadame Zelda is worried you might not be able to read directions");
 
                     Console.Write("\n\n\t\t\tPlease enter \"Yes\" or \"Quit\" :");
 
@@ -80,18 +88,21 @@ namespace ProjectOne
 
                 if (readAnserUp == "QUIT")
                 {
-                    Console.WriteLine("\n\n\t\t\t    Nobody likes a quitter!!\n");
+                    Console.Clear();
 
-                    Console.WriteLine("\n\n\t\t\t             Au Revoir!!\n\n\n");
+                    Console.WriteLine("\n\n\t\t\t    Nobody likes a quitter!!\n\n\n");
+
+                    Console.WriteLine("\n\n\t\t\t\t  Au Revoir!!\n\n\n");
 
                     return;
                 }
+
 
                 //This nesxt section will solicit the first and last name of the customer
 
                 Console.Write("********************************************************************************");
 
-                Console.Write("\nPlease give Zelga your first name: ");
+                Console.Write("\nPlease give Madame Zelda your first name: ");
 
                 string firstName = Console.ReadLine();
 
@@ -99,11 +110,11 @@ namespace ProjectOne
 
                 if (firstUpper == "QUIT")
                 {
-                    Console.WriteLine("\n\n\t\t\t    Nobody likes a quitter!!\n");
+                    Console.Clear();
 
-                    Console.WriteLine("\n\n\t\t\t             Au Revoir!!\n\n\n");
+                    Console.WriteLine("\n\n\t\t\t    Nobody likes a quitter!!\n\n\n");
 
-                    exitProgram = "QUIT";
+                    Console.WriteLine("\n\n\t\t\t\t  Au Revoir!!\n\n\n");
 
                     return;
                 }
@@ -112,21 +123,13 @@ namespace ProjectOne
 
                     Console.WriteLine("\n\nSuch a wonderful first nemae you have!!");
 
-                Console.Write("\n\nPlease give Zelga your last name: ");
+                    Console.Write("\n\nPlease give Zelga your last name: ");
 
-                string lastName = Console.ReadLine();
+                    string lastName = Console.ReadLine();
 
-                lastUpper = lastName.ToUpper();
+                    lastUpper = lastName.ToUpper();
 
-                if (lastUpper == "QUIT")
-                {
-                    Console.WriteLine("\n\n\t\t\t    Nobody likes a quitter!!\n");
-
-                    Console.WriteLine("\n\n\t\t\t             Au Revoir!!\n\n\n");
-
-                    return;
-                }
-                else if (lastUpper == "FITTANTE")
+                if (lastUpper == "FITTANTE")
                 {
 
                     Console.Write("\n\nYour last name is magical!\n\n");
@@ -137,10 +140,21 @@ namespace ProjectOne
 
                     Console.Clear();
                 }
+                else if (lastUpper == "QUIT")
+                {
+                    Console.Clear();
+
+                    Console.WriteLine("\n\n\t\t\t    Nobody likes a quitter!!\n\n\n");
+
+                    Console.WriteLine("\n\n\t\t\t\t  Au Revoir!!\n\n\n");
+
+                    return;
+                }
 
                 Console.Clear();
 
-                //This section will solicit the age of the customer
+                //This section will solicit the age of the customer. The following code also handles the exception
+                //thrown by the IDE when an the user enters an invalid string.  Example of an invalid string would be "test"
 
                 Console.Write("\n********************************************************************************\n\n");
 
@@ -152,11 +166,28 @@ namespace ProjectOne
 
                 string custAgeStr = Console.ReadLine();
 
-                if (custAgeStr == "QUIT")
+                custAgeStrUpper = custAgeStr.ToUpper();
+
+                if (custAgeStrUpper != "QUIT" && int.TryParse(custAgeStr, out custAge) == false)
                 {
+                    Console.Write("\nMadame Zelda needs a valid number to continue or \"Quit\" to escape!\n");
+
+                    Console.Write("\nPlease give Zelga your correct age! ");
+
+                    custAgeStr = Console.ReadLine();
+
+                    custAgeStrUpper = custAgeStr.ToUpper();
+
+                    Console.Clear();
+                }
+
+                if (custAgeStrUpper == "QUIT")
+                {
+                    Console.Clear();
+
                     Console.WriteLine("\n\n\t\t\t    Nobody likes a quitter!!\n\n\n");
 
-                    Console.WriteLine("\n\n\t\t\t             Au Revoir!!\n\n\n");
+                    Console.WriteLine("\n\n\t\t\t\t  Au Revoir!!\n\n\n");
 
                     return;
                 }
@@ -165,16 +196,30 @@ namespace ProjectOne
                     custAge = int.Parse(custAgeStr);
                 }
 
-
-                if (custAge < 1)
+                
+                if (custAge < 1 || custAge > 120)
                 {
                     Console.Write("\n\nYou are lying to Zelga\n");
 
                     Console.Write("\n\nPlease give Zelga your correct age! ");
 
                     custAgeStr = Console.ReadLine();
+
+                    custAgeStrUpper = custAgeStr.ToUpper();
+
                     Console.Clear();
 
+                }
+
+                if (custAgeStrUpper == "QUIT")
+                {
+                    Console.Clear();
+
+                    Console.WriteLine("\n\n\t\t\t    Nobody likes a quitter!!\n\n\n");
+
+                    Console.WriteLine("\n\n\t\t\t\t  Au Revoir!!\n\n\n");
+
+                    return;
                 }
                 else
                 {
@@ -182,8 +227,9 @@ namespace ProjectOne
                     Console.Clear();
                 }
 
-
-                //This section will solicit the month the customer was born
+                //This section will solicit the month the customer was born. The following code also handles the exception
+                //thrown by the IDE when an the user enters an invalid string.  Example of an invalid string would be "test"
+                //This section of code allows the user to input the numerical value of the month or the noun name.
 
                 Console.Write("\n********************************************************************************\n\n");
 
@@ -197,107 +243,139 @@ namespace ProjectOne
 
                 birthMonthUpper = birthMonth.ToUpper();
 
-                if (birthMonthUpper == "QUIT")
+                if(birthMonthArray.Contains(birthMonthUpper) == false && int.TryParse(birthMonth, out birthMonth1) == false)
                 {
-                    Console.WriteLine("\n\n\t\t\t    Nobody likes a quitter!!\n\n\n");
+                    Console.Write("\nMadame Zelda needs a valid number or month to continue or \"Quit\" to escape!\n");
 
-                    Console.WriteLine("\n\n\t\t\t             Au Revoir!!\n\n\n");
-
-                    return;
-                }
-
-                // This conditional statement is designed to ensure the correct user input. I know it is extremely long, and I hate using it. I would love some ideas
-
-                if (birthMonthUpper != "JANUNARY" || birthMonthUpper != "FEBRUARY" || birthMonthUpper != "MARCH" || birthMonthUpper != "APRIL"
-                    || birthMonthUpper != "MAY" || birthMonthUpper != "JUNE" || birthMonthUpper != "JULY" || birthMonthUpper != "AUGUST"
-                    || birthMonthUpper != "SEPTEMBER" || birthMonthUpper != "OCTOBER" || birthMonthUpper != "NOVEMBER" || birthMonthUpper != "DECEMBER")
-                {
-                    //The body of this if statement was intentioanlly left blank
-                }
-                else if (birthMonthUpper != "1" || birthMonthUpper != "2" || birthMonthUpper != "3" || birthMonthUpper != "4" || birthMonthUpper != "5"
-                || birthMonthUpper != "6" || birthMonthUpper != "7" || birthMonthUpper != "8" || birthMonthUpper != "9" || birthMonthUpper != "10"
-                || birthMonthUpper != "11" || birthMonthUpper != "12")
-                {
-                    Console.Write("\n\nZelga says please enter a correct month of the year\n");
-
-                    Console.Write("\n\nPlease tell Zelga the month you were born! ");
+                    Console.Write("\nPlease give Zelga your correct birth month! ");
 
                     birthMonth = Console.ReadLine();
 
                     birthMonthUpper = birthMonth.ToUpper();
 
                     Console.Clear();
+                    if (birthMonthUpper == "QUIT")
+                    {
+                        Console.Clear();
+
+                        Console.WriteLine("\n\n\t\t\t    Nobody likes a quitter!!\n\n\n");
+
+                        Console.WriteLine("\n\n\t\t\t             Au Revoir!!\n\n\n");
+
+                        return;
+                    }
+                    else if (int.TryParse(birthMonth, out birthMonth1) == true)
+                    {
+                        birthMonth1 = int.Parse(birthMonth);
+                        Console.Clear();
+                    }
+
+                }
+                else if (birthMonthUpper == "QUIT")
+                {
+                    Console.Clear();
+
+                    Console.WriteLine("\n\n\t\t\t    Nobody likes a quitter!!\n\n\n");
+
+                    Console.WriteLine("\n\n\t\t\t             Au Revoir!!\n\n\n");
+
+                    return;
+                }
+                else if (int.TryParse(birthMonth, out birthMonth1) == true)
+                {
+                    birthMonth1 = int.Parse(birthMonth);
+                    Console.Clear();
+                }
+                
+
+                if (birthMonth1 == 10)
+                {
+                    Console.Clear();
+                    Console.Write("\n********************************************************************************\n\n");
+                    Console.Write("Madame Zelga says October is glorius month!\n\n\n");
+                    Console.Write("\nPlease press \"Enter\" to continue");
+                    Console.Write("\n********************************************************************************");
+                    Console.ReadLine();
+                    Console.Clear();
                 }
 
                 //This switch statement will take the birthmonth as entered from the user 
                 //regardless of input type and convert into an int.
 
-                switch (birthMonthUpper)
+                if (birthMonthArray.Contains(birthMonthUpper))
                 {
-                    case "JANUNARY":
-                        birthMonth1 = 1;
-                        Console.Clear();
-                        break;
-                    case "FEBRUARY":
-                        birthMonth1 = 2;
-                        Console.Clear();
-                        break;
-                    case "MARCH":
-                        birthMonth1 = 3;
-                        Console.Clear();
-                        break;
-                    case "APRIL":
-                        birthMonth1 = 4;
-                        Console.Clear();
-                        break;
-                    case "MAY":
-                        birthMonth1 = 5;
-                        Console.Clear();
-                        break;
-                    case "JUNE":
-                        birthMonth1 = 6;
-                        Console.Clear();
-                        break;
-                    case "JULY":
-                        birthMonth1 = 7;
-                        Console.Clear();
-                        break;
-                    case "AUGUST":
-                        birthMonth1 = 8;
-                        Console.Clear();
-                        break;
-                    case "SEPTEMBER":
-                        birthMonth1 = 9;
-                        Console.Clear();
-                        break;
-                    case "OCTOBER":
-                        birthMonth1 = 10;
-                        Console.WriteLine("\n\nA Madame Zelga says October is glorius month!");
-                        Console.ReadLine();
-                        Console.Clear();
-                        break;
-                    case "NOVEMBER":
-                        birthMonth1 = 11;
-                        Console.Clear();
-                        break;
-                    case "DECEMBER":
-                        birthMonth1 = 12;
-                        Console.Clear();
-                        break;
-                    default:
-                        birthMonth1 = int.Parse(birthMonth);
-                        Console.Clear();
-                        break;
-                }
 
-                //This section will solicit a favorite color from the user
+                    switch (birthMonthUpper)
+                    {
+                        case "JANUNARY":
+                            birthMonth1 = 1;
+                            Console.Clear();
+                            break;
+                        case "FEBRUARY":
+                            birthMonth1 = 2;
+                            Console.Clear();
+                            break;
+                        case "MARCH":
+                            birthMonth1 = 3;
+                            Console.Clear();
+                            break;
+                        case "APRIL":
+                            birthMonth1 = 4;
+                            Console.Clear();
+                            break;
+                        case "MAY":
+                            birthMonth1 = 5;
+                            Console.Clear();
+                            break;
+                        case "JUNE":
+                            birthMonth1 = 6;
+                            Console.Clear();
+                            break;
+                        case "JULY":
+                            birthMonth1 = 7;
+                            Console.Clear();
+                            break;
+                        case "AUGUST":
+                            birthMonth1 = 8;
+                            Console.Clear();
+                            break;
+                        case "SEPTEMBER":
+                            birthMonth1 = 9;
+                            Console.Clear();
+                            break;
+                        case "OCTOBER":
+                            birthMonth1 = 10;
+                            Console.Clear();
+                            Console.Write("\n********************************************************************************\n\n");
+                            Console.Write("Madame Zelga says October is glorius month!Switch\n\n\n");
+                            Console.Write("Please press \"Enter\" to continue");
+                            Console.Write("\n********************************************************************************");                           
+                            Console.ReadLine();
+                            Console.Clear();
+                            break;
+                        case "NOVEMBER":
+                            birthMonth1 = 11;
+                            Console.Clear();
+                            break;
+                        case "DECEMBER":
+                            birthMonth1 = 12;
+                            Console.Clear();
+                            break;
+                        default:
+                            birthMonth1 = int.Parse(birthMonth);
+                            Console.Clear();
+                            break;
+                    }
+                }
+                
+                //This section will solicit a favorite color from the user. This section provides a Help menu and allows
+                // the user to intput a char for example "R" or the noun name of the color for example "Red"
 
                 Console.Write("\n********************************************************************************\n\n");
 
                 Console.Write("\tRemember if your spine is weakening, you can type \" Quit\" and breath!\n\n\n");
 
                 Console.Write("********************************************************************************\n");
-
 
                 Console.Write("Please enter your favorite \"ROYGBIV\" color for Zelga!\n");
 
@@ -311,6 +389,8 @@ namespace ProjectOne
 
                 if (roybivChoiceUpper == "QUIT")
                 {
+                    Console.Clear();
+
                     Console.WriteLine("\n\n\t\t\t    Nobody likes a quitter!!\n\n\n");
 
                     Console.WriteLine("\n\n\t\t\t             Au Revoir!!\n\n\n");
@@ -320,6 +400,7 @@ namespace ProjectOne
 
                 if (roybivChoiceUpper == "HELP")
                 {
+                    Console.Clear();
 
                     Console.Write("\n\n********************************************************************************\n");
 
@@ -346,10 +427,48 @@ namespace ProjectOne
                     roybivChoiceUpper = roygbivChoice.ToUpper();
 
                     Console.Clear();
+
+                    if (roybivChoiceUpper == "QUIT")
+                    {
+                        Console.Clear();
+
+                        Console.WriteLine("\n\n\t\t\t    Nobody likes a quitter!!\n\n\n");
+
+                        Console.WriteLine("\n\n\t\t\t             Au Revoir!!\n\n\n");
+
+                        return;
+                    }
                 }
 
-                if (roybivChoiceUpper == "RED" || roybivChoiceUpper == "ORANGE" || roybivChoiceUpper == "YELLOW" || roybivChoiceUpper == "BLUE" 
-                    || roybivChoiceUpper == "INDIGO" || roybivChoiceUpper == "VIOLET")
+                if (roygbivArray.Contains(roybivChoiceUpper) == false)
+
+                {
+                    Console.Clear();
+
+                    Console.Write("\n********************************************************************************\n\n");
+
+                    Console.Write("Madame Zelga asks you to please enter a ROYGBIV color\n\n");
+
+                    Console.Write("Please enter the first character for example \"R\" or \"Red\" ");
+
+                    roygbivChoice = Console.ReadLine();
+
+                    roybivChoiceUpper = roygbivChoice.ToUpper();
+
+                    if (roybivChoiceUpper == "QUIT")
+                    {
+                        Console.Clear();
+
+                        Console.WriteLine("\n\n\t\t\t    Nobody likes a quitter!!\n\n\n");
+
+                        Console.WriteLine("\n\n\t\t\t             Au Revoir!!\n\n\n");
+
+                        return;
+                    }
+
+                }
+
+                if (roygbivArray.Contains(roybivChoiceUpper) == true)
 
                 {
                     
@@ -357,9 +476,8 @@ namespace ProjectOne
                     Console.Clear();
                 }
 
-                else if (roybivChoiceUpper == "R" || roybivChoiceUpper == "O" || roybivChoiceUpper == "Y" || roybivChoiceUpper == "B"
-                    || roybivChoiceUpper == "I" || roybivChoiceUpper == "V")
-
+                if (roygbivArray.Contains(roybivChoiceUpper) == true)
+                
                 {
                     switch (roybivChoiceUpper)
                     {
@@ -373,6 +491,10 @@ namespace ProjectOne
                             break;
                         case "Y":
                             roybivChoiceUpper = "YELLOW";
+                            Console.Clear();
+                            break;
+                        case "G":
+                            roybivChoiceUpper = "GREEN";
                             Console.Clear();
                             break;
                         case "B":
@@ -391,17 +513,7 @@ namespace ProjectOne
                             break;
                     }
                 }
-                else
-                {
-                    Console.WriteLine("\n\nMadame Zelga asks you to please enter a ROYGBIV color\n");
-
-                    Console.Write("\nPlease enter the first character like \"R\" or \"Red\" for example\n ");
-
-                    roygbivChoice = Console.ReadLine();
-
-                    roybivChoiceUpper = roygbivChoice.ToUpper();
-
-                }
+                
 
                 Console.Write("\n\n********************************************************************************\n");
 
@@ -576,19 +688,19 @@ namespace ProjectOne
 
                 //This if else statement will process the users future bank account
 
-                bankAcctFuture = 0.00;
+                bankAcctFuture = 0.00m;
 
                 if (birthMonth1 >= 1 && birthMonth1 <= 4)
                 {
-                    bankAcctFuture = 25000.00;
+                    bankAcctFuture = 25000.00m;
                 }
                 else if (birthMonth1 >= 5 && birthMonth1 <= 8)
                 {
-                    bankAcctFuture = 28000.00;
+                    bankAcctFuture = 28000.00m;
                 }
                 else if (birthMonth1 >= 9 && birthMonth1 <= 12)
                 {
-                    bankAcctFuture = 21000.00;
+                    bankAcctFuture = 21000.00m;
                 }
 
 
@@ -596,12 +708,13 @@ namespace ProjectOne
                 //This section presents the future to the user
                 Console.Write("*******************************************************************************\n\n");
                 Console.Write("  Madame Zelga has looked into your future and she has seen your fortune\n\n");
-                Console.Write("*  {0} {1} will retire in {2} years with {3} in the bank,a vacation home in\n\n", firstUpper, lastUpper, yearRetire, bankAcctFuture);
-                Console.Write("*                            {0} with a {1}.\n\n", vacationHome, autoChoice);
+                Console.Write("*  {0} {1} will retire in {2} years with ${3} in the bank,a vacation home\n\n", firstUpper, lastUpper, yearRetire, bankAcctFuture);
+                Console.Write("*                          in uit{0} with a {1}.\n\n", vacationHome, autoChoice);
                 Console.Write("*******************************************************************************\n\n");
 
                 Console.WriteLine("Thank you for visiting Madame Zelga. Please enter \"Quit\" to exit the game.");
                 exitProgram = Console.ReadLine();
+                Console.Clear();
 
 
             }
