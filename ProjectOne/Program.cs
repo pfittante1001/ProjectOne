@@ -52,12 +52,15 @@ namespace ProjectOne
             "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"};
             string[] roygbivArray = new string[] {"HELP", "RED", "ORANGE", "YELLOW", "GREEN", "BLUE", "INDIGO", "VIOLET", "R", "O", "Y", "G", "B", "I", "V" };
 
-            //This first section will solicit buisness from the user
+            
 
 //Begginning of Part One project requirements
 
+            //While loop allows user to start new game or quit at end of game
             while (exitProgram != "QUIT")
             {
+
+//This first section will solicit buisness from the user
                 Console.Write("\t\t\tWelcome I am Madamme Zelda  \n\n\n");
 
                 Console.Write("\t\tWould you like Madame Zelda to read your future?\n\n\n");
@@ -113,7 +116,7 @@ namespace ProjectOne
                 }
 
 
-                //This nesxt section will solicit the first and last name of the customer
+//This nesxt section will solicit the first and last name of the customer
 
                 Console.Write("********************************************************************************");
 
@@ -138,7 +141,7 @@ namespace ProjectOne
 
                     Console.WriteLine("\n\nSuch a wonderful first nemae you have!!");
 
-                    Console.Write("\n\nPlease give Zelga your last name: ");
+                    Console.Write("\n\nPlease give Zelda your last name: ");
 
                     string lastNameLower = Console.ReadLine();
 
@@ -149,7 +152,7 @@ namespace ProjectOne
 
                     Console.Write("\n\nYour last name is magical!\n\n");
 
-                    Console.Write("Madame Zelga says press enter to continue!");
+                    Console.Write("Madame Zelda says press enter to continue!");
 
                     Console.ReadLine();
 
@@ -168,8 +171,8 @@ namespace ProjectOne
 
                 Console.Clear();
 
-                //This section will solicit the age of the customer. The following code also handles the exception
-                //thrown by the IDE when an the user enters an invalid string.  Example of an invalid string would be "test"
+//This section will solicit the age of the customer. The following code also handles the exception
+//thrown by the IDE when an the user enters an invalid string.  Example of an invalid string would be "test"
 
                 Console.Write("\n********************************************************************************\n\n");
 
@@ -177,17 +180,19 @@ namespace ProjectOne
 
                 Console.Write("********************************************************************************");
 
-                Console.Write("\nPlease give Zelga your age! I promise to keep it a secret! ");
+                Console.Write("\nPlease give Zelda your age! I promise to keep it a secret! ");
 
                 string custAgeStr = Console.ReadLine();
 
                 custAgeStrUpper = custAgeStr.ToUpper();
 
+                //This condition tests to seeIf the input is not equal to QUIT and custAgeStr cannot be parsed,
+                //then the input is a word not a number
                 if (custAgeStrUpper != "QUIT" && int.TryParse(custAgeStr, out custAge) == false)
                 {
                     Console.Write("\nMadame Zelda needs a valid number to continue or \"Quit\" to escape!\n");
 
-                    Console.Write("\nPlease give Zelga your correct age! ");
+                    Console.Write("\nPlease give Zelda your correct age! ");
 
                     custAgeStr = Console.ReadLine();
 
@@ -211,12 +216,12 @@ namespace ProjectOne
                     custAge = int.Parse(custAgeStr);
                 }
 
-                
+                //This condition was chosen randomly to make the age range more realistic and the game more interactive
                 if (custAge < 1 || custAge > 120)
                 {
-                    Console.Write("\n\nYou are lying to Zelga\n");
+                    Console.Write("\n\nYou are lying to Zelda\n");
 
-                    Console.Write("\n\nPlease give Zelga your correct age! ");
+                    Console.Write("\n\nPlease give Zelda your correct age! ");
 
                     custAgeStr = Console.ReadLine();
 
@@ -252,11 +257,12 @@ namespace ProjectOne
 
                 Console.Write("********************************************************************************");
 
-                Console.Write("\nPlease tell Zelga the month you were born! ");
+                Console.Write("\nPlease tell Zelda the month you were born! ");
 
                 string birthMonth = Console.ReadLine();
 
                 birthMonthUpper = birthMonth.ToUpper();
+
                 if (birthMonthUpper == "QUIT")
                 {
                     Console.Clear();
@@ -268,11 +274,13 @@ namespace ProjectOne
                     return;
                 }
 
+                //This condition checkes the birthMonth Array to see if the input from the user matches the valid contents of the array
+                //This condition stops the user from entering a value > 12 and a value < 1. Likewise, it looks for incorrect noun mane input
                 if (birthMonthArray.Contains(birthMonthUpper) == false)
                 {
                     Console.Write("\nMadame Zelda needs a valid number or month to continue or \"Quit\" to escape!\n");
 
-                    Console.Write("\nPlease give Zelga your correct birth month! ");
+                    Console.Write("\nPlease give Zelda your correct birth month! ");
 
                     birthMonth = Console.ReadLine();
 
@@ -292,25 +300,27 @@ namespace ProjectOne
                     }
                   }
 
+                //This conditional checks the user input to see if it can be parsed. If the input is a element of the birthMonthArray
+                //and the value can be parsed then the value is a valid entry
                 if (birthMonthArray.Contains(birthMonthUpper) == true && int.TryParse(birthMonthUpper, out birthMonth1) == true)
                 {
                     birthMonth1 = int.Parse(birthMonthUpper);
 
                 }
 
+                //Just a little humor on my part
                 if (birthMonth1 == 10)
                 {
                     Console.Clear();
                     Console.Write("\n********************************************************************************\n\n");
-                    Console.Write("Madame Zelga says October is glorius month!\n\n\n");
+                    Console.Write("Madame Zelda says October is glorius month!\n\n\n");
                     Console.Write("\nPlease press \"Enter\" to continue");
                     Console.Write("\n********************************************************************************");
                     Console.ReadLine();
                     Console.Clear();
                 }
 
-                //This switch statement will take the birthmonth as entered from the user 
-                //regardless of input type and convert into an int.
+                //This switch statement will take the noun name input as entered from the user and convert into an int.
 
                 if (birthMonthArray.Contains(birthMonthUpper))
                 {
@@ -357,7 +367,7 @@ namespace ProjectOne
                             birthMonth1 = 10;
                             Console.Clear();
                             Console.Write("\n********************************************************************************\n\n");
-                            Console.Write("Madame Zelga says October is glorius month!switch\n\n\n");
+                            Console.Write("Madame Zelda says October is glorius month!switch\n\n\n");
                             Console.Write("Please press \"Enter\" to continue");
                             Console.Write("\n********************************************************************************");                           
                             Console.ReadLine();
@@ -377,9 +387,9 @@ namespace ProjectOne
                             break;
                     }
                 }
-                
-                //This section will solicit a favorite color from the user. This section provides a Help menu and allows
-                // the user to intput a char for example "R" or the noun name of the color for example "Red"
+
+//This section will solicit a favorite ROYGBIV color from the user. This section provides a Help menu and allows
+// the user to intput a char for example "R" or the noun name of the color for example "Red"
 
                 Console.Write("\n********************************************************************************\n\n");
 
@@ -387,11 +397,11 @@ namespace ProjectOne
 
                 Console.Write("********************************************************************************\n");
 
-                Console.Write("Please enter your favorite \"ROYGBIV\" color for Zelga!\n");
+                Console.Write("Please enter your favorite \"ROYGBIV\" color for Zelda!\n");
 
                 Console.Write("\n\nIf you do not know what \"ROYGBIV\" is, please type \"Help\"");
 
-                Console.Write("\n\n\nZelga will gladly help you! ");
+                Console.Write("\n\n\nZelda will gladly help you! ");
 
                 string roygbivChoice = Console.ReadLine();
 
@@ -428,9 +438,9 @@ namespace ProjectOne
 
                     Console.WriteLine("V = Violet");
 
-                    Console.WriteLine("\n\n\nNow that Madame Zelga helped you, please give");
+                    Console.WriteLine("\n\n\nNow that Madame Zelda helped you, please give");
 
-                    Console.Write("\n\nMadame Zelga your favorite \"ROYGBIV\" color! ");
+                    Console.Write("\n\nMadame Zelda your favorite \"ROYGBIV\" color! ");
 
                     roygbivChoice = Console.ReadLine();
 
@@ -450,6 +460,8 @@ namespace ProjectOne
                     }
                 }
 
+                //This condition checkes the roygbiv Array to see if the input from the user matches the valid contents of the array
+                //This condition stops the user from entering a value. Likewise, it looks for incorrect noun mane input
                 if (roygbivArray.Contains(roybivChoiceUpper) == false)
 
                 {
@@ -457,7 +469,7 @@ namespace ProjectOne
 
                     Console.Write("\n********************************************************************************\n\n");
 
-                    Console.Write("Madame Zelga asks you to please enter a ROYGBIV color\n\n");
+                    Console.Write("Madame Zelda asks you to please enter a ROYGBIV color\n\n");
 
                     Console.Write("Please enter the first character for example \"R\" or \"Red\" ");
 
@@ -478,13 +490,13 @@ namespace ProjectOne
 
                 }
 
-                if (roygbivArray.Contains(roybivChoiceUpper) == true)
+                //if (roygbivArray.Contains(roybivChoiceUpper) == true)
 
-                {
+                //{
                     
-                    roybivChoiceUpper = roygbivChoice.ToUpper();
-                    Console.Clear();
-                }
+                //    roybivChoiceUpper = roygbivChoice.ToUpper();
+                //    Console.Clear();
+                //}
 
                 if (roygbivArray.Contains(roybivChoiceUpper) == true)
                 
@@ -520,6 +532,8 @@ namespace ProjectOne
                             Console.Clear();
                             break;
                         default:
+                            roybivChoiceUpper = roygbivChoice.ToUpper();
+                            Console.Clear();
                             break;
                     }
                 }
@@ -527,9 +541,9 @@ namespace ProjectOne
 
                 Console.Write("\n\n********************************************************************************\n");
 
-                Console.Write("{0} is Zelga's favorite as well!\n", roybivChoiceUpper);
+                Console.Write("{0} is Zelda's favorite as well!\n", roybivChoiceUpper);
 
-                Console.Write("\n\nMadame Zelga says press enter to continue!");
+                Console.Write("\n\nMadame Zelda says press enter to continue!");
 
                 Console.ReadLine();
 
@@ -547,9 +561,9 @@ namespace ProjectOne
 
                 Console.Write("\nOur journey is almost complete my dear!\n");
 
-                Console.Write("\n\nMadame Zelga has only one remaining question\n");
+                Console.Write("\n\nMadame Zelda has only one remaining question\n");
 
-                Console.Write("\n\nMadame Zelga says press enter to continue!");
+                Console.Write("\n\nMadame Zelda says press enter to continue!");
 
                 Console.ReadLine();
 
@@ -557,7 +571,7 @@ namespace ProjectOne
 
                 Console.Write("\n\n********************************************************************************\n");
 
-                Console.Write("\nMadame Zelga would like to know how my siblings you have! ");
+                Console.Write("\nMadame Zelda would like to know how my siblings you have! ");
 
                 string numSiblingsStr = (Console.ReadLine());
                 string numsiblingsStrUpper = numSiblingsStr.ToUpper();
@@ -573,6 +587,7 @@ namespace ProjectOne
                     return;
                 }
 
+                //This condition tests to see if the user input is a vaild number by checking to see if the value can be parsed
                 if (int.TryParse(numSiblingsStr, out numSiblings) == false)
                 {
                     Console.Clear();
@@ -581,7 +596,7 @@ namespace ProjectOne
 
                     Console.Write("Madame Zelda says I need a valid number for example \"1\"");
 
-                    Console.Write("\n\nMadame Zelga would like to know how my siblings you have! ");
+                    Console.Write("\n\nMadame Zelda would like to know how my siblings you have! ");
 
                     numSiblingsStr = (Console.ReadLine());
 
@@ -603,11 +618,12 @@ namespace ProjectOne
                     numSiblings = int.Parse(numSiblingsStr);
                 }
 
+                //This condition checks to make sure the use input is valid and greater than 0
                 if (numSiblings < 0)
                 {
-                    Console.Write("\n\nMadame Zelga thinks your funny! You cannot enter a number less than zero!\n");
+                    Console.Write("\n\nMadame Zelda thinks your funny! You cannot enter a number less than zero!\n");
 
-                    Console.Write("\n\nMadame Zelga would like to know how my siblings you have! ");
+                    Console.Write("\n\nMadame Zelda would like to know how my siblings you have! ");
 
                     numSiblingsStr = (Console.ReadLine());
 
@@ -637,7 +653,7 @@ namespace ProjectOne
 
                 Console.Write("\n\n********************************************************************************");
 
-                Console.Write("\nMadame Zelga is now ready to tell your fortune!");
+                Console.Write("\nMadame Zelda is now ready to tell your fortune!");
 
                 Console.Write("\n\nIf you want to see into your future, please type \"Yes\"");
 
@@ -648,16 +664,19 @@ namespace ProjectOne
                 userContUpper = userCont.ToUpper();
 
                 if (userContUpper == "QUIT")
-
                 {
-                    Console.WriteLine("\n\n\t\t\t    Nobody likes a quitter!!");
+                    Console.Clear();
+
+                    Console.WriteLine("\n\n\t\t\t    Nobody likes a quitter!!\n\n\n");
+
+                    Console.WriteLine("\n\n\t\t\t             Au Revoir!!\n\n\n");
 
                     return;
                 }
                 else
                 {
                     Console.WriteLine("\n\nA brave soul you are indeed!");
-                    Console.Write("\n\nMadame Zelga says press enter to continue!");
+                    Console.Write("\n\nMadame Zelda says press enter to continue!");
                     Console.ReadLine();
                     Console.Clear();
 
@@ -776,12 +795,12 @@ namespace ProjectOne
 
                 //This section presents the future to the user
                 Console.Write("*******************************************************************************\n\n");
-                Console.Write("  Madame Zelga has looked into your future and she has seen your fortune\n\n");
+                Console.Write("  Madame Zelda has looked into your future and she has seen your fortune\n\n");
                 Console.Write("*  {0} {1} will retire in {2} years with ${3} in the bank, a vacation home\n\n", firstNameUpper, lastNameUpper, yearRetire, bankAcctFuture);
                 Console.Write("*                          in {0} and a {1}.\n\n", vacationHome, autoChoice);
                 Console.Write("*******************************************************************************\n\n");
 
-                Console.WriteLine("Thank you for visiting Madame Zelga. Please enter \"Quit\" to exit the game.");
+                Console.WriteLine("Thank you for visiting Madame Zelda. Please enter \"Quit\" to exit the game.");
                 exitProgram = Console.ReadLine();
                 Console.Clear();
 
